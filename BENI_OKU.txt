@@ -1,0 +1,65 @@
+================================================================================
+                    BAYHOSAF PRO / CS2 KULLANIM KILAVUZU
+================================================================================
+
+⚠️ ÇOK ÖNEMLİ: YÖNETİCİ OLARAK ÇALIŞTIRMA ŞARTI
+--------------------------------------------------------------------------------
+Bu pakette yer alan tüm araçların (Enjektör, Başlatıcı, Web Radar ve Otomatik Güncelleyici)
+sorunsuz çalışabilmesi için YÖNETİCİ HAKLARI ŞARTTIR.
+
+NEDEN YÖNETİCİ OLARAK ÇALIŞTIRILMALI?
+1. Windows UAC ve Bellek Koruması: CS2 (cs2.exe) 64-bit korumalı bir işlem olarak
+   çalışır. Normal kullanıcı haklarıyla başlatılan programlar oyun belleğine bağlanamaz
+   ve Windows tarafından "Access Denied (Erişim Engellendi)" hatasıyla engellenir.
+2. Kararlılık ve Sıfır Çökme: Enjektörün DLL'i güvenli şekilde aktarabilmesi ve
+   DirectX çizim kancasını bağlayabilmesi için SeDebugPrivilege yetkisi gereklidir.
+3. Otomatik Ofset & Ağ: Otomatik A2X ofset güncelleyicisi ve Web Radar'ın yerel port (8080)
+   üzerinden kesintisiz yayın yapabilmesi için yönetici izni şarttır.
+
+
+1. OYUNU BAŞLATMA VE ENJEKSİYON (ÖNERİLEN YÖNTEM)
+--------------------------------------------------------------------------------
+- "Oyunu_Baslat.bat" dosyasına SAĞ TIKLAYIN ve "YÖNETİCİ OLARAK ÇALIŞTIR" deyin.
+- Bu dosya sırasıyla:
+  1) Arka planda A2X ve Sezzyaep üzerinden güncel CS2 ofsetlerini otomatik kontrol eder.
+  2) Web Radarı arka planda sessizce ayağa kaldırır.
+  3) BayHosaf Enjektörü yönetici yetkileriyle hazır olarak ekrana getirir.
+- CS2 açıldığında enjektörden "BayHosaf_k5.dll" veya "BayHosaf.dll" seçerek aktarımı tamamlayın.
+
+
+2. MANUEL ENJEKTÖR ÇALIŞTIRMA
+--------------------------------------------------------------------------------
+- "BayHosaf_Injector.exe" dosyasına SAĞ TIKLAYIN ve "YÖNETİCİ OLARAK ÇALIŞTIR" seçeneğini seçin.
+- Enjektör CS2 açıkken ilgili DLL'i otomatik algılar ve aktarır.
+
+
+3. OYUN İÇİ MENÜ AÇMA / KAPATMA TUŞLARI
+--------------------------------------------------------------------------------
+- Standart Klavyelerde: [ INSERT ] tuşu
+- %60, TKL veya Numpadsiz Klavyelerde: [ SHIFT + 0 ] tuş kombinasyonu
+- Menü ilk açıldığında kaydedilen "BayHosaf" hazır profili otomatik olarak yüklenir.
+- Mermi izleri (bullet tracers) tüm hazır profillerde kapalı olarak ayarlanmıştır.
+
+
+4. WEB RADAR (TAKIMLA ANLIK KONUM PAYLAŞIMI)
+--------------------------------------------------------------------------------
+- Tarayıcınızı açın (Chrome / Edge / Opera vb.).
+- Adres çubuğuna: http://localhost:8080 yazın.
+- 10 resmi harita üzerinde düşman ve bomba konumlarını canlı olarak 2D radar üzerinde görün.
+- Takım arkadaşlarınızla aynı yerel ağdaysanız yerel IP adresinizi vererek onların da
+  herhangi bir ek program yüklemeden haritayı tarayıcıdan izlemelerini sağlayabilirsiniz.
+
+
+5. OTOMATİK OFSET SİSTEMİ
+--------------------------------------------------------------------------------
+- Harici olarak hiçbir şey indirmenize veya manuel işlem yapmanıza gerek yoktur.
+- Sistem iki katmanlı çalışır:
+  * İçeriden: Valve'ın kendi Schema motoru üzerinden canlı şemayı okur.
+  * Dışarıdan: Başlatıcı her açılışta A2X dumper üzerinden ofsetleri otomatik günceller.
+
+
+6. İLETİŞİM & LİSANS DESTEK
+--------------------------------------------------------------------------------
+- Discord Destek & Satış: faruk_q06_54351
+
+================================================================================
