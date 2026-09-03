@@ -1,65 +1,59 @@
-================================================================================
-                    BAYHOSAF PRO / CS2 KULLANIM KILAVUZU
-================================================================================
+==============================================================================
+            BAYHOSAF PRO - CS2 OZEL DAĞITIM PAKETI (v2.6)
+==============================================================================
 
-⚠️ ÇOK ÖNEMLİ: YÖNETİCİ OLARAK ÇALIŞTIRMA ŞARTI
---------------------------------------------------------------------------------
-Bu pakette yer alan tüm araçların (Enjektör, Başlatıcı, Web Radar ve Otomatik Güncelleyici)
-sorunsuz çalışabilmesi için YÖNETİCİ HAKLARI ŞARTTIR.
+[ DIKKAT: YONETICI HAKLARI SARTTIR! ]
+Bu paketteki dosyalari calistirirken mutlaka SAG TIKLAYIP "Yonetici olarak calistir"
+secenegini kullanmaniz gerekmektedir. 
 
-NEDEN YÖNETİCİ OLARAK ÇALIŞTIRILMALI?
-1. Windows UAC ve Bellek Koruması: CS2 (cs2.exe) 64-bit korumalı bir işlem olarak
-   çalışır. Normal kullanıcı haklarıyla başlatılan programlar oyun belleğine bağlanamaz
-   ve Windows tarafından "Access Denied (Erişim Engellendi)" hatasıyla engellenir.
-2. Kararlılık ve Sıfır Çökme: Enjektörün DLL'i güvenli şekilde aktarabilmesi ve
-   DirectX çizim kancasını bağlayabilmesi için SeDebugPrivilege yetkisi gereklidir.
-3. Otomatik Ofset & Ağ: Otomatik A2X ofset güncelleyicisi ve Web Radar'ın yerel port (8080)
-   üzerinden kesintisiz yayın yapabilmesi için yönetici izni şarttır.
+NEDEN YONETICI OLARAK CALISTIRILMALIDIR?
+1. CS2 (cs2.exe) korumali 64-bit bir surectir; yonetici hakki olmadan oyun 
+   bellek alanina erisim engellenir (Access Denied / Hata Kodu 0x5).
+2. DLL Enjeksiyonunun ve Direct3D kancasinin stabil baglanabilmesi icin 
+   Windows "SeDebugPrivilege" yetkisi zorunludur.
+3. Arka plandaki otomatik ofset denetleyicisi ve Web Radar sunucusu (port 8080)
+   guvenlik duvarina takilmadan calisabilmelidir.
 
+------------------------------------------------------------------------------
+DIZIN YAPISI:
+------------------------------------------------------------------------------
+[ANA DIZIN - KULLANICI ARACLARI]
+- Oyunu_Baslat.bat       : Tek tikla ofset kontrolunu, radari ve enjektoru acar.
+- BayHosaf_Injector.exe  : 64-bit guvenli DLL enjektoru.
+- BayHosaf.dll           : Anti-Terorist crash korumali ana sistem DLL'i.
+- BayHosaf_k5.dll        : Alternatif paket ana DLL'i.
+- BENI_OKU.txt           : Hızlı baslangic kilavuzu.
+- README.md              : Ayrintili kurulum ve aciklamalar.
 
-1. OYUNU BAŞLATMA VE ENJEKSİYON (ÖNERİLEN YÖNTEM)
---------------------------------------------------------------------------------
-- "Oyunu_Baslat.bat" dosyasına SAĞ TIKLAYIN ve "YÖNETİCİ OLARAK ÇALIŞTIR" deyin.
-- Bu dosya sırasıyla:
-  1) Arka planda A2X ve Sezzyaep üzerinden güncel CS2 ofsetlerini otomatik kontrol eder.
-  2) Web Radarı arka planda sessizce ayağa kaldırır.
-  3) BayHosaf Enjektörü yönetici yetkileriyle hazır olarak ekrana getirir.
-- CS2 açıldığında enjektörden "BayHosaf_k5.dll" veya "BayHosaf.dll" seçerek aktarımı tamamlayın.
+[KLASOR: Gerekli_Sistem_Bilesenleri]
+- BayHosaf_Updater.exe   : CS2 A2X otomatik ofset guncelleyicisi.
+- BayHosaf_Web_Radar.exe : Canli harita sunucusu (Port 8080).
+- Web_Radar_Baslat.bat   : Web Radari ayri baslatma kisayolu.
+- configs_hazir/         : 35 adet profesyonel hazir profil (Mermi izleri kapali).
+- radar_maps/            : 10 adet CS2 yuksek cozunurluklu radar plani.
+- radar_weapons/         : 50 adet resmi silah ikonu.
+- offsets.json & client_dll.json : Yerel ofset onbellek dosyalari.
 
+------------------------------------------------------------------------------
+NASIL KULLANILIR? (EN KOLAY YOL)
+------------------------------------------------------------------------------
+1. Oyunu_Baslat.bat dosyasina SAG TIKLAYIN -> "Yonetici olarak calistir" deyin.
+2. Baslatici otomatik olarak:
+   - Ofsetleri denetler,
+   - Web Radari arka planda acar,
+   - Enjektoru yonetici olarak ekrana getirir.
+3. CS2 acikken enjektorden DLL'i secip enjekte edin.
+4. Oyun icinde menuyu acmak icin [ INSERT ] veya [ SHIFT + 0 ] tusuna basin.
 
-2. MANUEL ENJEKTÖR ÇALIŞTIRMA
---------------------------------------------------------------------------------
-- "BayHosaf_Injector.exe" dosyasına SAĞ TIKLAYIN ve "YÖNETİCİ OLARAK ÇALIŞTIR" seçeneğini seçin.
-- Enjektör CS2 açıkken ilgili DLL'i otomatik algılar ve aktarır.
+------------------------------------------------------------------------------
+WEB RADAR (TELEFON / TABLET / 2. EKRAN)
+------------------------------------------------------------------------------
+Web Radara ayni agdaki cihazlardan ulasmak icin:
+http://BILGISAYAR_IP:8080
+veya bu bilgisayardan: http://localhost:8080
 
-
-3. OYUN İÇİ MENÜ AÇMA / KAPATMA TUŞLARI
---------------------------------------------------------------------------------
-- Standart Klavyelerde: [ INSERT ] tuşu
-- %60, TKL veya Numpadsiz Klavyelerde: [ SHIFT + 0 ] tuş kombinasyonu
-- Menü ilk açıldığında kaydedilen "BayHosaf" hazır profili otomatik olarak yüklenir.
-- Mermi izleri (bullet tracers) tüm hazır profillerde kapalı olarak ayarlanmıştır.
-
-
-4. WEB RADAR (TAKIMLA ANLIK KONUM PAYLAŞIMI)
---------------------------------------------------------------------------------
-- Tarayıcınızı açın (Chrome / Edge / Opera vb.).
-- Adres çubuğuna: http://localhost:8080 yazın.
-- 10 resmi harita üzerinde düşman ve bomba konumlarını canlı olarak 2D radar üzerinde görün.
-- Takım arkadaşlarınızla aynı yerel ağdaysanız yerel IP adresinizi vererek onların da
-  herhangi bir ek program yüklemeden haritayı tarayıcıdan izlemelerini sağlayabilirsiniz.
-
-
-5. OTOMATİK OFSET SİSTEMİ
---------------------------------------------------------------------------------
-- Harici olarak hiçbir şey indirmenize veya manuel işlem yapmanıza gerek yoktur.
-- Sistem iki katmanlı çalışır:
-  * İçeriden: Valve'ın kendi Schema motoru üzerinden canlı şemayı okur.
-  * Dışarıdan: Başlatıcı her açılışta A2X dumper üzerinden ofsetleri otomatik günceller.
-
-
-6. İLETİŞİM & LİSANS DESTEK
---------------------------------------------------------------------------------
-- Discord Destek & Satış: faruk_q06_54351
-
-================================================================================
+------------------------------------------------------------------------------
+ILETISIM VE DESTEK
+------------------------------------------------------------------------------
+Discord: faruk_q06_54351
+==============================================================================
